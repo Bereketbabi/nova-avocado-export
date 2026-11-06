@@ -42,13 +42,20 @@ function Intro({ onDone }: { onDone: () => void }) {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <motion.span
-            className="absolute inset-0 rounded-full border border-avocado/30"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: [0.8, 1.15], opacity: [0.6, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut" }}
-          />
-          <img src={mark} alt="" width={360} height={330} className="h-28 w-auto animate-mark-flip md:h-32" />
+          <svg viewBox="0 0 200 200" className="absolute inset-0 h-full w-full -rotate-90" aria-hidden>
+            <circle cx="100" cy="100" r="92" fill="none" className="stroke-forest/10" strokeWidth="2" />
+            <circle cx="100" cy="100" r="92" fill="none" className="stroke-avocado" strokeWidth="3" strokeLinecap="round"
+              pathLength={100} strokeDasharray="100" strokeDashoffset={100 - count} />
+          </svg>
+          <motion.svg viewBox="0 0 200 200" className="absolute inset-[-14px] h-[calc(100%+28px)] w-[calc(100%+28px)]" aria-hidden
+            animate={{ rotate: 360 }} transition={{ duration: 2.4, repeat: Infinity, ease: "linear" }}>
+            <circle cx="100" cy="100" r="96" fill="none" className="stroke-banana" strokeWidth="3" strokeLinecap="round" pathLength={100} strokeDasharray="22 78" />
+          </motion.svg>
+          <motion.svg viewBox="0 0 200 200" className="absolute inset-[14px] h-[calc(100%-28px)] w-[calc(100%-28px)]" aria-hidden
+            animate={{ rotate: -360 }} transition={{ duration: 3.2, repeat: Infinity, ease: "linear" }}>
+            <circle cx="100" cy="100" r="96" fill="none" className="stroke-avocado/60" strokeWidth="1.5" strokeLinecap="round" pathLength={100} strokeDasharray="8 12" />
+          </motion.svg>
+          <img src={mark} alt="" width={360} height={330} className="h-24 w-auto md:h-28" />
         </motion.div>
 
         <div className="mt-8 flex overflow-hidden font-display text-3xl tracking-[0.4em] text-forest md:text-4xl">
