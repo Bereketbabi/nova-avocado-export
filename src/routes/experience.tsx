@@ -50,7 +50,7 @@ function Experience() {
           <div className="mt-20 space-y-24">
             {PROCESS.map((p, i) => (
               <div key={p.title} className={`grid items-center gap-10 md:grid-cols-2 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
-                <RevealImage src={PROCESS_IMG[i]} alt={p.title} className="aspect-[16/11]" />
+                <RevealImage src={PROCESS_IMG[i] ?? hero} alt={p.title} className="aspect-[16/11]" />
                 <Reveal className="md:px-10">
                   <span className="font-display text-7xl text-banana">0{i + 1}</span>
                   <h3 className="mt-4 text-3xl md:text-4xl">{p.title}</h3>

@@ -57,7 +57,7 @@ function Gallery() {
         {open !== null && (
           <motion.div className="fixed inset-0 z-[80] flex items-center justify-center bg-forest-deep/95 p-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setOpen(null)}>
             <button aria-label="Close" className="absolute right-6 top-6 text-ivory"><X className="h-8 w-8" /></button>
-            <motion.img key={open} src={IMAGES[open].src} alt={IMAGES[open].alt} className="max-h-[85vh] max-w-full object-contain" initial={{ scale: 0.94, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }} />
+            <motion.img key={open} src={IMAGES[open]!.src} alt={IMAGES[open]!.alt} className="max-h-[85vh] max-w-full object-contain" initial={{ scale: 0.94, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }} />
           </motion.div>
         )}
       </AnimatePresence>
