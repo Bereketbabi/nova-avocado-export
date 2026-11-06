@@ -33,12 +33,12 @@ function Experience() {
           <Reveal className="max-w-2xl"><p className="eyebrow text-avocado">Timeline</p><h2 className="mt-5 text-4xl leading-tight text-forest md:text-5xl">From supplier to direct exporter.</h2></Reveal>
           <ol className="relative mt-20 border-l border-border pl-10 md:ml-[33%]">
             {JOURNEY.map((j, i) => (
-              <Reveal as="li" key={j.title} delay={0.05} className="relative pb-16 last:pb-0">
+              <li key={j.title} className="relative pb-16 last:pb-0"><Reveal>
                 <span className="absolute -left-[3.05rem] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-banana ring-8 ring-ivory" />
                 <span className="font-display text-sm text-avocado md:absolute md:-left-[calc(50%+3rem)] md:top-0 md:w-40 md:text-right md:text-6xl md:text-forest/15">0{i + 1}</span>
                 <h3 className="mt-2 text-2xl text-forest md:mt-0 md:text-3xl">{j.title}</h3>
                 <p className="mt-3 max-w-xl leading-relaxed text-muted-foreground">{j.text}</p>
-              </Reveal>
+              </Reveal></li>
             ))}
           </ol>
         </div>

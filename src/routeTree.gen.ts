@@ -11,6 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as ExperienceRouteImport } from './routes/experience'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as GlobalTradeRouteImport } from './routes/global-trade'
 import { Route as ProductsRouteImport } from './routes/products'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +26,21 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExperienceRoute = ExperienceRouteImport.update({
+  id: '/experience',
+  path: '/experience',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GlobalTradeRoute = GlobalTradeRouteImport.update({
+  id: '/global-trade',
+  path: '/global-trade',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsRoute = ProductsRouteImport.update({
   id: '/products',
   path: '/products',
@@ -32,30 +50,51 @@ const ProductsRoute = ProductsRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/experience': typeof ExperienceRoute
+  '/gallery': typeof GalleryRoute
+  '/global-trade': typeof GlobalTradeRoute
   '/products': typeof ProductsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/experience': typeof ExperienceRoute
+  '/gallery': typeof GalleryRoute
+  '/global-trade': typeof GlobalTradeRoute
   '/products': typeof ProductsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/experience': typeof ExperienceRoute
+  '/gallery': typeof GalleryRoute
+  '/global-trade': typeof GlobalTradeRoute
   '/products': typeof ProductsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/products'
+  fullPaths:
+    '/' | '/about' | '/experience' | '/gallery' | '/global-trade' | '/products'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/products'
-  id: '__root__' | '/' | '/about' | '/products'
+  to:
+    '/' | '/about' | '/experience' | '/gallery' | '/global-trade' | '/products'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/experience'
+    | '/gallery'
+    | '/global-trade'
+    | '/products'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ExperienceRoute: typeof ExperienceRoute
+  GalleryRoute: typeof GalleryRoute
+  GlobalTradeRoute: typeof GlobalTradeRoute
   ProductsRoute: typeof ProductsRoute
 }
 
@@ -75,6 +114,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/experience': {
+      id: '/experience'
+      path: '/experience'
+      fullPath: '/experience'
+      preLoaderRoute: typeof ExperienceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/global-trade': {
+      id: '/global-trade'
+      path: '/global-trade'
+      fullPath: '/global-trade'
+      preLoaderRoute: typeof GlobalTradeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products': {
       id: '/products'
       path: '/products'
@@ -88,6 +148,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ExperienceRoute: ExperienceRoute,
+  GalleryRoute: GalleryRoute,
+  GlobalTradeRoute: GlobalTradeRoute,
   ProductsRoute: ProductsRoute,
 }
 export const routeTree = rootRouteImport
