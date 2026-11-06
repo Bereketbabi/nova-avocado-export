@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
-import logo from "@/assets/nova-logo.png";
+import logo from "@/assets/nova-logo-light.png";
 import { NAV, SITE } from "@/lib/site";
 
 export function Footer() {
@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="relative overflow-hidden bg-forest-deep text-ivory">
       <div className="container-x grid gap-14 py-20 md:grid-cols-12">
         <div className="md:col-span-5">
-          <div className="inline-block bg-ivory px-4 py-3">
+          <div className="inline-block">
             <img src={logo} alt="Nova Wholesale Trade" width={560} height={189} loading="lazy" className="h-11 w-auto" />
           </div>
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-ivory/70">
