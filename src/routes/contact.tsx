@@ -73,7 +73,7 @@ function Contact() {
         <div className="container-x grid gap-16 lg:grid-cols-12">
           <Reveal className="lg:col-span-4">
             <p className="eyebrow text-avocado">Get in touch</p>
-            <h2 className="mt-5 text-4xl leading-tight text-forest">Talk to our team.</h2>
+            <h2 className="mt-5 text-3xl sm:text-4xl leading-tight text-forest">Talk to our team.</h2>
             <p className="mt-6 leading-relaxed text-muted-foreground">Looking for a reliable banana supply partner? Reach us directly or send an inquiry.</p>
             <div className="mt-10 space-y-px bg-border">
               {[

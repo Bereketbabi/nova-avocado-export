@@ -34,7 +34,7 @@ function About() {
         <div className="container-x grid gap-16 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
             <p className="eyebrow text-avocado">Our story</p>
-            <h2 className="mt-5 text-4xl leading-tight text-forest md:text-5xl">From trusted supply to direct global trade.</h2>
+            <h2 className="mt-5 text-3xl sm:text-4xl leading-tight text-forest md:text-5xl">From trusted supply to direct global trade.</h2>
           </Reveal>
           <Reveal delay={0.1} className="space-y-6 leading-relaxed text-muted-foreground lg:col-span-6 lg:col-start-7">
             <p className="text-lg text-foreground">Nova Wholesale Trade has built its experience supplying banana products to several established exporting companies, who handled the international export process.</p>

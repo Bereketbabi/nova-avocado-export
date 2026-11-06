@@ -30,7 +30,7 @@ function Experience() {
 
       <section className="bg-ivory py-28 md:py-40">
         <div className="container-x">
-          <Reveal className="max-w-2xl"><p className="eyebrow text-avocado">Timeline</p><h2 className="mt-5 text-4xl leading-tight text-forest md:text-5xl">From supplier to direct exporter.</h2></Reveal>
+          <Reveal className="max-w-2xl"><p className="eyebrow text-avocado">Timeline</p><h2 className="mt-5 text-3xl sm:text-4xl leading-tight text-forest md:text-5xl">From supplier to direct exporter.</h2></Reveal>
           <ol className="relative mt-20 border-l border-border pl-10 md:ml-[33%]">
             {JOURNEY.map((j, i) => (
               <li key={j.title} className="relative pb-16 last:pb-0"><Reveal>
@@ -46,7 +46,7 @@ function Experience() {
 
       <section className="grain relative bg-forest py-28 text-ivory md:py-36">
         <div className="container-x">
-          <Reveal className="max-w-2xl"><p className="eyebrow text-banana">Quality & supply</p><h2 className="mt-5 text-4xl leading-tight md:text-6xl">Quality starts at the source.</h2></Reveal>
+          <Reveal className="max-w-2xl"><p className="eyebrow text-banana">Quality & supply</p><h2 className="mt-5 text-3xl sm:text-4xl leading-tight md:text-6xl">Quality starts at the source.</h2></Reveal>
           <div className="mt-20 space-y-24">
             {PROCESS.map((p, i) => (
               <div key={p.title} className={`grid items-center gap-10 md:grid-cols-2 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>

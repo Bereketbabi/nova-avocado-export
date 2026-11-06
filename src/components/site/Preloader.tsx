@@ -89,26 +89,34 @@ function Intro({ onDone }: { onDone: () => void }) {
   );
 }
 
-/** Short curtain shown between pages, mirroring the intro mark. */
+/** Short curtain shown between pages — same ring loader as the intro. */
 function PageCurtain() {
   return (
     <motion.div
       key="curtain"
       className="fixed inset-0 z-[90] flex items-center justify-center bg-ivory"
-      initial={{ clipPath: "inset(0% 0% 0% 0%)" }}
+      initial={{ clipPath: "inset(100% 0% 0% 0%)" }}
       animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
       exit={{ clipPath: "inset(0% 0% 100% 0%)" }}
-      transition={{ duration: 0.8, ease }}
+      transition={{ duration: 0.6, ease }}
     >
-      <motion.img
-        src={mark}
-        alt=""
-        width={360}
-        height={330}
-        className="h-24 w-auto animate-mark-flip"
-        exit={{ opacity: 0, y: -30 }}
-        transition={{ duration: 0.4 }}
-      />
+      <motion.div className="relative flex h-32 w-32 items-center justify-center md:h-40 md:w-40"
+        exit={{ opacity: 0, y: -30 }} transition={{ duration: 0.35 }}>
+        <svg viewBox="0 0 200 200" className="absolute inset-0 h-full w-full -rotate-90" aria-hidden>
+          <circle cx="100" cy="100" r="92" fill="none" className="stroke-forest/10" strokeWidth="2" />
+          <motion.circle cx="100" cy="100" r="92" fill="none" className="stroke-avocado" strokeWidth="3" strokeLinecap="round"
+            initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.2 }} />
+        </svg>
+        <motion.svg viewBox="0 0 200 200" className="absolute inset-[-12px] h-[calc(100%+24px)] w-[calc(100%+24px)]" aria-hidden
+          animate={{ rotate: 360 }} transition={{ duration: 1.6, repeat: Infinity, ease: "linear" }}>
+          <circle cx="100" cy="100" r="96" fill="none" className="stroke-banana" strokeWidth="3" strokeLinecap="round" pathLength={100} strokeDasharray="22 78" />
+        </motion.svg>
+        <motion.svg viewBox="0 0 200 200" className="absolute inset-[12px] h-[calc(100%-24px)] w-[calc(100%-24px)]" aria-hidden
+          animate={{ rotate: -360 }} transition={{ duration: 2.2, repeat: Infinity, ease: "linear" }}>
+          <circle cx="100" cy="100" r="96" fill="none" className="stroke-avocado/60" strokeWidth="1.5" strokeLinecap="round" pathLength={100} strokeDasharray="8 12" />
+        </motion.svg>
+        <img src={mark} alt="" width={360} height={330} className="h-16 w-auto md:h-20" />
+      </motion.div>
     </motion.div>
   );
 }
@@ -127,7 +135,7 @@ export function Preloader() {
     if (first.current) { first.current = false; return; }
     setCurtain(true);
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-    const t = setTimeout(() => setCurtain(false), 750);
+    const t = setTimeout(() => setCurtain(false), 1300);
     return () => clearTimeout(t);
   }, [pathname]);
 

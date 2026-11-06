@@ -47,7 +47,7 @@ function Hero() {
         <motion.p className="eyebrow flex items-center gap-4 text-banana" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, ease, delay: INTRO_DELAY }}>
           <span className="h-px w-10 bg-banana" /> Ethiopian Agricultural Exports
         </motion.p>
-        <h1 className="mt-6 max-w-5xl text-[2.9rem] leading-[1] text-ivory sm:text-6xl md:text-7xl lg:text-[6.5rem]">
+        <h1 className="mt-6 max-w-5xl text-[2.4rem] leading-[1.02] text-ivory sm:text-6xl md:text-7xl lg:text-[6.5rem]">
           {[line1, line2].map((l, i) => (
             <span key={i} className="block overflow-hidden pb-2">
               <motion.span className={`block ${i === 1 ? "italic text-banana" : ""}`} initial={{ y: "110%" }} animate={{ y: 0 }} transition={{ duration: 1.3, ease, delay: INTRO_DELAY + 0.1 + i * 0.14 }}>{l}</motion.span>
@@ -90,7 +90,7 @@ function Home() {
           </div>
           <Reveal className="lg:col-span-5 lg:col-start-8">
             <p className="eyebrow text-avocado">About Nova</p>
-            <h2 className="mt-5 text-4xl leading-[1.08] text-forest md:text-6xl">Experience that goes beyond supply.</h2>
+            <h2 className="mt-5 text-3xl sm:text-4xl leading-[1.08] text-forest md:text-6xl">Experience that goes beyond supply.</h2>
             <p className="mt-8 leading-relaxed text-muted-foreground">
               Built on years of experience supplying established export partners, Nova Wholesale Trade now connects quality Ethiopian banana production directly with international markets.
             </p>
@@ -112,7 +112,7 @@ function Home() {
           <Reveal className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
               <p className="eyebrow text-avocado">Our Products</p>
-              <h2 className="mt-5 max-w-xl text-4xl leading-tight text-forest md:text-6xl">Grown in Ethiopia, selected with care.</h2>
+              <h2 className="mt-5 max-w-xl text-3xl sm:text-4xl leading-tight text-forest md:text-6xl">Grown in Ethiopia, selected with care.</h2>
             </div>
             <Link to="/products" className="text-sm font-bold uppercase tracking-[0.15em] text-forest underline decoration-banana decoration-2 underline-offset-8">View all products</Link>
           </Reveal>
@@ -145,7 +145,7 @@ function Home() {
         <div className="container-x">
           <Reveal className="max-w-2xl">
             <p className="eyebrow text-banana">Our Experience</p>
-            <h2 className="mt-5 text-4xl leading-tight md:text-6xl">A journey built step by step.</h2>
+            <h2 className="mt-5 text-3xl sm:text-4xl leading-tight md:text-6xl">A journey built step by step.</h2>
           </Reveal>
           <div className="mt-20 grid gap-px bg-ivory/10 md:grid-cols-2 lg:grid-cols-4">
             {JOURNEY.map((j, i) => (
@@ -165,7 +165,7 @@ function Home() {
         <div className="container-x grid items-center gap-16 lg:grid-cols-2">
           <Reveal>
             <p className="eyebrow text-avocado">Quality & Supply</p>
-            <h2 className="mt-5 text-4xl leading-tight text-forest md:text-6xl">Quality starts at the source.</h2>
+            <h2 className="mt-5 text-3xl sm:text-4xl leading-tight text-forest md:text-6xl">Quality starts at the source.</h2>
             <p className="mt-8 max-w-lg leading-relaxed text-muted-foreground">From the farm to the carton, every stage is handled with attention — sourcing, selection, quality checks, packaging and supply coordination.</p>
             <Link to="/experience" className="mt-10 inline-flex items-center gap-3 bg-forest px-7 py-4 text-xs font-bold uppercase tracking-[0.18em] text-ivory transition-colors hover:bg-forest-deep">See the supply journey <ArrowRight className="h-4 w-4" /></Link>
           </Reveal>
@@ -178,7 +178,7 @@ function Home() {
         <div className="container-x">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="eyebrow text-avocado">Global Trade</p>
-            <h2 className="mt-5 text-4xl leading-tight text-forest md:text-6xl">Rooted in Ethiopia. Open to the world.</h2>
+            <h2 className="mt-5 text-3xl sm:text-4xl leading-tight text-forest md:text-6xl">Rooted in Ethiopia. Open to the world.</h2>
             <p className="mx-auto mt-6 max-w-xl text-muted-foreground">We are building direct relationships with international buyers seeking dependable Ethiopian banana supply.</p>
           </Reveal>
           <Reveal className="relative mx-auto mt-14 max-w-5xl">

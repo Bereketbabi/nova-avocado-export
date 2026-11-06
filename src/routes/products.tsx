@@ -37,7 +37,7 @@ function Products() {
           <RevealImage src={hero} alt="Fresh Ethiopian bananas on a banana leaf" width={1408} height={1008} className="aspect-[4/3] lg:col-span-7" />
           <Reveal className="lg:col-span-5">
             <p className="eyebrow text-avocado">Featured product</p>
-            <h2 className="mt-5 text-4xl leading-tight text-forest md:text-5xl">Fresh Ethiopian Bananas</h2>
+            <h2 className="mt-5 text-3xl sm:text-4xl leading-tight text-forest md:text-5xl">Fresh Ethiopian Bananas</h2>
             <p className="mt-6 leading-relaxed text-muted-foreground">Bananas sourced from Ethiopian growing regions and prepared for wholesale and export buyers. Full specifications are shared directly with each buyer.</p>
             <dl className="mt-10 divide-y divide-border border-y border-border">
               {SPECS.map(([k, v]) => (
@@ -51,7 +51,7 @@ function Products() {
 
       <section className="bg-sage py-28 md:py-36">
         <div className="container-x">
-          <Reveal><p className="eyebrow text-avocado">Coming soon</p><h2 className="mt-5 max-w-2xl text-4xl leading-tight text-forest md:text-5xl">More of our range.</h2></Reveal>
+          <Reveal><p className="eyebrow text-avocado">Coming soon</p><h2 className="mt-5 max-w-2xl text-3xl sm:text-4xl leading-tight text-forest md:text-5xl">More of our range.</h2></Reveal>
           <div className="mt-16 grid gap-6 md:grid-cols-2">
             {[{ img: bunch, t: "Additional varieties", d: "Further banana varieties will be listed here once confirmed." }, { img: packing, t: "Packing options", d: "Carton formats and packing details will be published once confirmed." }].map((c, i) => (
               <Reveal key={c.t} delay={i * 0.1} className="group">

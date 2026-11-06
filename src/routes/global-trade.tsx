@@ -27,7 +27,7 @@ function GlobalTrade() {
         <div className="container-x">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow text-avocado">Origin</p>
-            <h2 className="mt-5 text-4xl leading-tight text-forest md:text-5xl">Our origin, your market.</h2>
+            <h2 className="mt-5 text-3xl sm:text-4xl leading-tight text-forest md:text-5xl">Our origin, your market.</h2>
             <p className="mt-6 text-muted-foreground">We are building direct relationships with international buyers seeking dependable Ethiopian banana supply.</p>
           </Reveal>
           <Reveal className="mx-auto mt-14 max-w-5xl"><WorldMap /></Reveal>
@@ -37,7 +37,7 @@ function GlobalTrade() {
         <div className="container-x grid items-center gap-16 lg:grid-cols-2">
           <Reveal>
             <p className="eyebrow text-avocado">Destinations</p>
-            <h2 className="mt-5 text-4xl leading-tight text-forest md:text-5xl">Confirmed markets will appear here.</h2>
+            <h2 className="mt-5 text-3xl sm:text-4xl leading-tight text-forest md:text-5xl">Confirmed markets will appear here.</h2>
             <p className="mt-6 max-w-lg leading-relaxed text-muted-foreground">As direct export partnerships are confirmed, destination markets will be listed in this section. If you are a buyer interested in Ethiopian bananas, we'd like to hear from you.</p>
             <div className="mt-10 grid grid-cols-2 gap-px bg-border">
               {["Market — TBC", "Market — TBC", "Market — TBC", "Market — TBC"].map((m, i) => (
