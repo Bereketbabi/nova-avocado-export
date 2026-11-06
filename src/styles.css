@@ -85,6 +85,7 @@
 @layer base {
   * { border-color: var(--color-border); }
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  html, body { overflow-x: clip; }
   body { background-color: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); }
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.015em; }
   ::selection { background: var(--banana); color: var(--forest-deep); }

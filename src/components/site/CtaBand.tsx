@@ -11,7 +11,7 @@ export function CtaBand() {
       <div className="container-x relative py-28 md:py-36">
         <Reveal className="max-w-2xl">
           <p className="eyebrow text-banana">Partnership</p>
-          <h2 className="mt-5 text-4xl leading-tight text-ivory md:text-6xl">Let's build a supply partnership.</h2>
+          <h2 className="mt-5 text-3xl sm:text-4xl leading-tight text-ivory md:text-6xl">Let's build a supply partnership.</h2>
           <p className="mt-6 max-w-lg text-ivory/75">Looking for a reliable banana supply partner? Connect with Nova Wholesale Trade to discuss your sourcing requirements.</p>
           <Link to="/contact" className="mt-10 inline-flex items-center gap-3 bg-banana px-7 py-4 text-xs font-bold uppercase tracking-[0.18em] text-forest-deep transition-colors hover:bg-banana-deep">
             Start a Partnership <ArrowUpRight className="h-4 w-4" />

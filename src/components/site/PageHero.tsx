@@ -14,7 +14,7 @@ export function PageHero({ image, eyebrow, title, crumb }: { image: string; eyeb
       <div className="container-x relative pb-16 md:pb-24">
         <motion.p className="eyebrow text-banana" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease, delay: 0.2 }}>{eyebrow}</motion.p>
         <div className="overflow-hidden">
-          <motion.h1 className="mt-4 max-w-4xl text-5xl leading-[1.02] text-ivory md:text-7xl lg:text-8xl"
+          <motion.h1 className="mt-4 max-w-4xl break-words text-4xl leading-[1.05] text-ivory sm:text-5xl md:text-7xl lg:text-8xl"
             initial={{ y: "105%" }} animate={{ y: 0 }} transition={{ duration: 1.2, ease, delay: 0.3 }}>{title}</motion.h1>
         </div>
         <motion.nav aria-label="Breadcrumb" className="mt-8 flex items-center gap-2 text-sm text-ivory/70"
