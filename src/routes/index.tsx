@@ -86,7 +86,7 @@ function Home() {
         <div className="container-x grid items-center gap-16 lg:grid-cols-12">
           <div className="relative lg:col-span-6">
             <RevealImage src={farmer} alt="Ethiopian farmer carrying a fresh banana bunch" width={1200} height={1504} className="aspect-[4/5] w-[82%]" />
-            <RevealImage src={hands} alt="Inspecting bananas at a collection point" width={1408} height={1008} className="absolute -bottom-12 right-0 aspect-square w-[48%] border-[10px] border-ivory shadow-soft" />
+            <RevealImage src={hands} alt="Inspecting bananas at a collection point" width={1408} height={1008} accent={false} className="absolute -bottom-12 right-0 aspect-square w-[48%] border-[10px] border-ivory shadow-soft" />
           </div>
           <Reveal className="lg:col-span-5 lg:col-start-8">
             <p className="eyebrow text-avocado">About Nova</p>
