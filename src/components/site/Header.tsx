@@ -22,7 +22,7 @@ export function Header() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div className={`transition-all duration-700 ease-expo ${solid ? "bg-ivory/95 shadow-soft backdrop-blur-md" : "bg-transparent"}`}>
+      <div className={`transition-all duration-700 ease-expo ${solid ? "bg-ivory/95 border-b border-border backdrop-blur-md" : "bg-transparent"}`}>
         <div className={`container-x flex items-center justify-between gap-6 transition-all duration-700 ease-expo ${solid ? "h-20" : "h-24"}`}>
           <Link to="/" aria-label="Nova Wholesale Trade — home"
             className={`flex shrink-0 items-center rounded-sm transition-all duration-700 ease-expo ${solid ? "px-0 py-0" : "bg-ivory px-4 py-2.5 shadow-soft"}`}>
