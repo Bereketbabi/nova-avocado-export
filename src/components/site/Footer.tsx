@@ -12,7 +12,7 @@ export function Footer() {
             <img src={logo} alt="Nova Wholesale Trade" width={560} height={189} loading="lazy" className="h-11 w-auto" />
           </div>
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-ivory/70">
-            An experienced Ethiopian banana supplier, now connecting quality production directly with international buyers.
+            An experienced Ethiopian avocado supplier, now connecting quality production directly with international buyers.
           </p>
         </div>
         <div className="md:col-span-3">

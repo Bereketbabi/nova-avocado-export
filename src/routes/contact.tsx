@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { CheckCircle2, Mail, MapPin, Phone } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import { z } from "zod";
-import hero from "@/assets/hands-quality.jpg";
+import hero from "@/assets/avocado-quality-hands.jpg";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { SITE } from "@/lib/site";
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact & Request a Quote — Nova Wholesale Trade" },
-      { name: "description", content: "Contact Nova Wholesale Trade to discuss Ethiopian banana supply. Email elsagetachew123@gmail.com or call +251 92 095 9903." },
+      { name: "description", content: "Contact Nova Wholesale Trade to discuss Ethiopian avocado supply. Email elsagetachew123@gmail.com or call +251 92 095 9903." },
       { property: "og:title", content: "Contact Nova Wholesale Trade" },
       { property: "og:description", content: "Let's build a supply partnership." },
     ],
@@ -74,7 +74,7 @@ function Contact() {
           <Reveal className="lg:col-span-4">
             <p className="eyebrow text-avocado">Get in touch</p>
             <h2 className="mt-5 text-3xl sm:text-4xl leading-tight text-forest">Talk to our team.</h2>
-            <p className="mt-6 leading-relaxed text-muted-foreground">Looking for a reliable banana supply partner? Reach us directly or send an inquiry.</p>
+            <p className="mt-6 leading-relaxed text-muted-foreground">Looking for a reliable avocado supply partner? Reach us directly or send an inquiry.</p>
             <div className="mt-10 space-y-px bg-border">
               {[
                 { icon: Mail, k: "Email", v: SITE.email, href: `mailto:${SITE.email}` },

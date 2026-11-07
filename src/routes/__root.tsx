@@ -81,8 +81,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Nova Wholesale Trade — Ethiopian Banana Supply & Export" },
-      { name: "description", content: "Quality Ethiopian bananas from an experienced supplier now trading directly with international buyers." },
+      { title: "Nova Wholesale Trade — Ethiopian Avocado Supply & Export" },
+      { name: "description", content: "Quality Ethiopian avocados from an experienced supplier now trading directly with international buyers." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

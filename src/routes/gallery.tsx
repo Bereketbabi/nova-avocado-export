@@ -2,14 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { useState } from "react";
-import hero from "@/assets/hero-plantation.jpg";
-import farmer from "@/assets/farmer-harvest.jpg";
-import hands from "@/assets/hands-quality.jpg";
-import product from "@/assets/product-bananas.jpg";
-import packing from "@/assets/packing-shed.jpg";
-import truck from "@/assets/supply-truck.jpg";
-import lead from "@/assets/trade-lead.jpg";
-import bunch from "@/assets/banana-bunch.jpg";
+import hero from "@/assets/avocado-orchard-hero.jpg";
+import farmer from "@/assets/ethiopian-avocado-farmer.jpg";
+import hands from "@/assets/avocado-quality-hands.jpg";
+import product from "@/assets/hass-avocado-crate.jpg";
+import packing from "@/assets/avocado-packing-house.jpg";
+import truck from "@/assets/avocado-cold-chain-truck.jpg";
+import lead from "@/assets/avocado-export-inspection.jpg";
+import fruit from "@/assets/green-avocados-tree.jpg";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 
@@ -17,30 +17,30 @@ export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
       { title: "Gallery — Nova Wholesale Trade" },
-      { name: "description", content: "Ethiopian banana farms, harvest, quality checks and packing — in pictures." },
+      { name: "description", content: "Ethiopian avocado orchards, harvest, quality checks and packing — in pictures." },
       { property: "og:title", content: "Gallery — Nova Wholesale Trade" },
-      { property: "og:description", content: "From Ethiopian farms to export cartons." },
+      { property: "og:description", content: "From Ethiopian avocado orchards to export cartons." },
     ],
   }),
   component: Gallery,
 });
 
 const IMAGES = [
-  { src: hero, alt: "Banana plantation at golden hour", cls: "md:col-span-2 aspect-[16/9]" },
-  { src: bunch, alt: "Banana bunch on the plant", cls: "md:row-span-2 aspect-[4/5] md:aspect-auto" },
-  { src: farmer, alt: "Farmer carrying a banana bunch", cls: "aspect-[4/5]" },
-  { src: hands, alt: "Checking bananas by hand", cls: "aspect-[4/5]" },
-  { src: packing, alt: "Packing bananas into cartons", cls: "md:col-span-2 aspect-[16/9]" },
-  { src: lead, alt: "Nova trade representative", cls: "aspect-[4/5]" },
-  { src: product, alt: "Fresh bananas on a leaf", cls: "aspect-[4/5]" },
-  { src: truck, alt: "Bananas loaded for transport", cls: "md:col-span-1 aspect-[4/5]" },
+  { src: hero, alt: "Sunlit avocado orchard in the Ethiopian highlands", cls: "md:col-span-2 aspect-[16/9]" },
+  { src: fruit, alt: "Green avocados growing on the tree", cls: "md:row-span-2 aspect-[4/5] md:aspect-auto" },
+  { src: farmer, alt: "Ethiopian farmer inspecting a Hass avocado", cls: "aspect-[4/5]" },
+  { src: hands, alt: "Checking freshly cut avocados by hand", cls: "aspect-[4/5]" },
+  { src: packing, alt: "Sorting and packing avocados into export cartons", cls: "md:col-span-2 aspect-[16/9]" },
+  { src: lead, alt: "Inspecting avocado export cartons at a refrigerated container", cls: "aspect-[4/5]" },
+  { src: product, alt: "Fresh Hass avocados in a wooden field crate", cls: "aspect-[4/5]" },
+  { src: truck, alt: "Refrigerated avocado transport through the Ethiopian highlands", cls: "md:col-span-1 aspect-[4/5]" },
 ];
 
 function Gallery() {
   const [open, setOpen] = useState<number | null>(null);
   return (
     <>
-      <PageHero image={packing} eyebrow="Gallery" title="From the farm to the carton." crumb="Gallery" />
+      <PageHero image={packing} eyebrow="Gallery" title="From the orchard to the carton." crumb="Gallery" />
       <section className="bg-ivory py-28 md:py-36">
         <div className="container-x grid gap-4 md:grid-cols-3">
           {IMAGES.map((im, i) => (

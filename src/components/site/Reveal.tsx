@@ -1,4 +1,4 @@
-import { motion, useInView, type HTMLMotionProps } from "framer-motion";
+import { motion, useInView, useReducedMotion, useScroll, useTransform, type HTMLMotionProps } from "framer-motion";
 import { useRef } from "react";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -20,11 +20,14 @@ export function Reveal({ delay = 0, y = 32, ...props }: HTMLMotionProps<"div"> &
  * accent panels. Visibility is observed on an unclipped wrapper so the image
  * always reveals (a fully clipped element can fail to register as in view).
  */
-export function RevealImage({ src, alt, className = "", imgClassName = "", width, height, eager, accent = true }: {
-  src: string; alt: string; className?: string; imgClassName?: string; width?: number; height?: number; eager?: boolean; accent?: boolean;
+export function RevealImage({ src, alt, className = "", imgClassName = "", width, height, eager, accent = true, parallax = 0 }: {
+  src: string; alt: string; className?: string; imgClassName?: string; width?: number; height?: number; eager?: boolean; accent?: boolean; parallax?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.15 });
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], [-parallax, parallax]);
   return (
     <div ref={ref} className={`relative ${className}`}>
       {accent && (
@@ -45,7 +48,8 @@ export function RevealImage({ src, alt, className = "", imgClassName = "", width
         <motion.img
           src={src} alt={alt} width={width} height={height}
           loading={eager ? "eager" : "lazy"} decoding="async"
-          className={`h-full w-full object-cover ${imgClassName}`}
+          style={{ y: reduceMotion ? 0 : y }}
+          className={`${parallax ? "absolute inset-x-0 -top-[10%] h-[120%]" : "h-full"} w-full object-cover ${imgClassName}`}
           initial={{ scale: 1.25 }} animate={inView ? { scale: 1 } : {}} transition={{ duration: 1.8, ease }}
         />
       </motion.div>

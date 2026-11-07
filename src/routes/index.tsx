@@ -1,13 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
-import hero from "@/assets/hero-plantation.jpg";
-import farmer from "@/assets/farmer-harvest.jpg";
-import hands from "@/assets/hands-quality.jpg";
-import product from "@/assets/product-bananas.jpg";
-import packing from "@/assets/packing-shed.jpg";
-import bunch from "@/assets/banana-bunch.jpg";
+import hero from "@/assets/avocado-orchard-hero.jpg";
+import farmer from "@/assets/ethiopian-avocado-farmer.jpg";
+import hands from "@/assets/avocado-quality-hands.jpg";
+import product from "@/assets/hass-avocado-crate.jpg";
+import packing from "@/assets/avocado-packing-house.jpg";
+import fruit from "@/assets/green-avocados-tree.jpg";
 import { Reveal, RevealImage } from "@/components/site/Reveal";
 import { CtaBand } from "@/components/site/CtaBand";
 import { WorldMap } from "@/components/site/WorldMap";
@@ -17,8 +17,8 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Nova Wholesale Trade — From the Heart of Ethiopia to the World" },
-      { name: "description", content: "Quality Ethiopian bananas, trusted supply experience and direct connections to international markets." },
-      { property: "og:title", content: "Nova Wholesale Trade — Ethiopian Banana Supply" },
+      { name: "description", content: "Quality Ethiopian avocados, trusted supply experience and direct connections to international markets." },
+      { property: "og:title", content: "Nova Wholesale Trade — Ethiopian Avocado Supply" },
       { property: "og:description", content: "From trusted supply to direct global trade." },
     ],
   }),
@@ -30,20 +30,22 @@ const INTRO_DELAY = 2.6; // lines up with the preloader exit
 
 function Hero() {
   const ref = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", reduceMotion ? "0%" : "12%"]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -70]);
   const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
   const line1 = "From the Heart of Ethiopia";
   const line2 = "to the World.";
   return (
     <section ref={ref} className="grain relative h-[100svh] min-h-[640px] overflow-hidden bg-forest-deep">
-      <motion.div style={{ y }} className="absolute inset-0">
-        <motion.img src={hero} alt="Banana plantation in southern Ethiopia at golden hour" width={1920} height={1088} fetchPriority="high"
-          className="h-full w-full object-cover" initial={{ scale: 1.2 }} animate={{ scale: 1 }} transition={{ duration: 3, ease, delay: INTRO_DELAY - 0.6 }} />
+      <motion.div style={{ y }} className="absolute inset-x-0 -inset-y-[12%]">
+        <motion.img src={hero} alt="Sunlit avocado orchard in the southern Ethiopian highlands" width={1920} height={1088} fetchPriority="high"
+          className="h-full w-full object-cover brightness-[1.08] saturate-[1.05]" initial={{ scale: 1.16 }} animate={{ scale: 1 }} transition={{ duration: 3, ease, delay: INTRO_DELAY - 0.6 }} />
       </motion.div>
-      <div className="absolute inset-0 bg-side-veil" />
-      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-forest-deep/90 to-transparent" />
-      <motion.div style={{ opacity: fade }} className="container-x relative flex h-full flex-col justify-end pb-20 md:pb-28">
+      <div className="absolute inset-0 bg-hero-veil" />
+      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-hero-bottom" />
+      <motion.div style={{ opacity: fade, y: contentY }} className="container-x relative flex h-full flex-col justify-end pb-20 md:pb-28">
         <motion.p className="eyebrow flex items-center gap-4 text-banana" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, ease, delay: INTRO_DELAY }}>
           <span className="h-px w-10 bg-banana" /> Ethiopian Agricultural Exports
         </motion.p>
@@ -55,8 +57,8 @@ function Hero() {
           ))}
         </h1>
         <div className="mt-10 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
-          <motion.p className="max-w-md text-base leading-relaxed text-ivory/80 md:text-lg" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease, delay: INTRO_DELAY + 0.5 }}>
-            Quality Ethiopian bananas. Trusted supply experience. Direct connections to international markets.
+          <motion.p className="max-w-md text-base leading-relaxed text-ivory/90 md:text-lg" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease, delay: INTRO_DELAY + 0.5 }}>
+            Quality Ethiopian avocados. Trusted supply experience. Direct connections to international markets.
           </motion.p>
           <motion.div className="flex flex-wrap gap-3" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease, delay: INTRO_DELAY + 0.65 }}>
             <Link to="/products" className="inline-flex items-center gap-3 bg-banana px-7 py-4 text-xs font-bold uppercase tracking-[0.18em] text-forest-deep transition-colors hover:bg-banana-deep">
@@ -85,14 +87,14 @@ function Home() {
       <section className="bg-ivory py-28 md:py-40">
         <div className="container-x grid items-center gap-16 lg:grid-cols-12">
           <div className="relative lg:col-span-6">
-            <RevealImage src={farmer} alt="Ethiopian farmer carrying a fresh banana bunch" width={1200} height={1504} className="aspect-[4/5] w-[82%]" />
-            <RevealImage src={hands} alt="Inspecting bananas at a collection point" width={1408} height={1008} accent={false} className="absolute -bottom-12 right-0 aspect-square w-[48%] border-[10px] border-ivory shadow-soft" />
+            <RevealImage src={farmer} alt="Ethiopian farmer inspecting a Hass avocado on the tree" width={1200} height={1504} parallax={30} className="aspect-[4/5] w-[82%]" />
+            <RevealImage src={hands} alt="Inspector holding freshly cut Ethiopian avocados" width={1408} height={1056} parallax={18} accent={false} className="absolute -bottom-12 right-0 aspect-square w-[48%] border-[10px] border-ivory shadow-soft" />
           </div>
           <Reveal className="lg:col-span-5 lg:col-start-8">
             <p className="eyebrow text-avocado">About Nova</p>
-            <h2 className="mt-5 text-3xl sm:text-4xl leading-[1.08] text-forest md:text-6xl">Experience that goes beyond supply.</h2>
+            <h2 className="mt-5 text-3xl leading-[1.08] text-forest sm:text-4xl md:text-6xl">Experience that goes beyond supply.</h2>
             <p className="mt-8 leading-relaxed text-muted-foreground">
-              Built on years of experience supplying established export partners, Nova Wholesale Trade now connects quality Ethiopian banana production directly with international markets.
+              Built on years of experience supplying established export partners, Nova Wholesale Trade now connects quality Ethiopian avocado production directly with international markets.
             </p>
             <ul className="mt-10 grid gap-px bg-border sm:grid-cols-2">
               {["Established supply experience", "Understanding of export requirements", "Commitment to quality", "Direct relationships with buyers"].map((t) => (
@@ -112,14 +114,14 @@ function Home() {
           <Reveal className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
               <p className="eyebrow text-avocado">Our Products</p>
-              <h2 className="mt-5 max-w-xl text-3xl sm:text-4xl leading-tight text-forest md:text-6xl">Grown in Ethiopia, selected with care.</h2>
+              <h2 className="mt-5 max-w-xl text-3xl leading-tight text-forest sm:text-4xl md:text-6xl">Grown in Ethiopia, selected with care.</h2>
             </div>
             <Link to="/products" className="text-sm font-bold uppercase tracking-[0.15em] text-forest underline decoration-banana decoration-2 underline-offset-8">View all products</Link>
           </Reveal>
           <div className="mt-16 grid gap-6 md:grid-cols-12">
             {[
-              { img: product, t: "Fresh Ethiopian Bananas", d: "Carefully harvested bananas from Ethiopian growing regions, prepared for wholesale and export supply.", cls: "md:col-span-7", ar: "aspect-[4/3]" },
-              { img: bunch, t: "Additional Varieties", d: "Further varieties and product specifications will be listed here once confirmed.", cls: "md:col-span-5 md:mt-24", ar: "aspect-[4/5]" },
+              { img: product, t: "Fresh Ethiopian Avocados", d: "Carefully harvested avocados from Ethiopian growing regions, prepared for wholesale and export supply.", cls: "md:col-span-7", ar: "aspect-[4/3]" },
+              { img: fruit, t: "Additional Varieties", d: "Further varieties and product specifications will be listed here once confirmed.", cls: "md:col-span-5 md:mt-24", ar: "aspect-[4/5]" },
             ].map((p, i) => (
               <Reveal key={p.t} delay={i * 0.1} className={p.cls}>
                 <Link to="/products" className="group block">
@@ -145,7 +147,7 @@ function Home() {
         <div className="container-x">
           <Reveal className="max-w-2xl">
             <p className="eyebrow text-banana">Our Experience</p>
-            <h2 className="mt-5 text-3xl sm:text-4xl leading-tight md:text-6xl">A journey built step by step.</h2>
+            <h2 className="mt-5 text-3xl leading-tight sm:text-4xl md:text-6xl">A journey built step by step.</h2>
           </Reveal>
           <div className="mt-20 grid gap-px bg-ivory/10 md:grid-cols-2 lg:grid-cols-4">
             {JOURNEY.map((j, i) => (
@@ -165,11 +167,11 @@ function Home() {
         <div className="container-x grid items-center gap-16 lg:grid-cols-2">
           <Reveal>
             <p className="eyebrow text-avocado">Quality & Supply</p>
-            <h2 className="mt-5 text-3xl sm:text-4xl leading-tight text-forest md:text-6xl">Quality starts at the source.</h2>
+            <h2 className="mt-5 text-3xl leading-tight text-forest sm:text-4xl md:text-6xl">Quality starts at the source.</h2>
             <p className="mt-8 max-w-lg leading-relaxed text-muted-foreground">From the farm to the carton, every stage is handled with attention — sourcing, selection, quality checks, packaging and supply coordination.</p>
             <Link to="/experience" className="mt-10 inline-flex items-center gap-3 bg-forest px-7 py-4 text-xs font-bold uppercase tracking-[0.18em] text-ivory transition-colors hover:bg-forest-deep">See the supply journey <ArrowRight className="h-4 w-4" /></Link>
           </Reveal>
-          <RevealImage src={packing} alt="Workers packing bananas into cartons in Ethiopia" width={1600} height={1008} className="aspect-[16/11]" />
+          <RevealImage src={packing} alt="Ethiopian workers sorting and packing fresh avocados" width={1600} height={1104} parallax={34} className="aspect-[16/11]" />
         </div>
       </section>
 
@@ -178,8 +180,8 @@ function Home() {
         <div className="container-x">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="eyebrow text-avocado">Global Trade</p>
-            <h2 className="mt-5 text-3xl sm:text-4xl leading-tight text-forest md:text-6xl">Rooted in Ethiopia. Open to the world.</h2>
-            <p className="mx-auto mt-6 max-w-xl text-muted-foreground">We are building direct relationships with international buyers seeking dependable Ethiopian banana supply.</p>
+            <h2 className="mt-5 text-3xl leading-tight text-forest sm:text-4xl md:text-6xl">Rooted in Ethiopia. Open to the world.</h2>
+            <p className="mx-auto mt-6 max-w-xl text-muted-foreground">We are building direct relationships with international buyers seeking dependable Ethiopian avocado supply.</p>
           </Reveal>
           <Reveal className="relative mx-auto mt-14 max-w-5xl">
             <WorldMap />
@@ -191,4 +193,3 @@ function Home() {
     </>
   );
 }
-

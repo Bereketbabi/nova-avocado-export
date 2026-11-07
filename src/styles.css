@@ -80,6 +80,8 @@
   --shadow-soft: 0 30px 60px -30px color-mix(in oklab, var(--forest-deep) 45%, transparent);
   --gradient-veil: linear-gradient(180deg, color-mix(in oklab, var(--forest-deep) 70%, transparent) 0%, color-mix(in oklab, var(--forest-deep) 20%, transparent) 40%, color-mix(in oklab, var(--forest-deep) 85%, transparent) 100%);
   --gradient-side: linear-gradient(90deg, color-mix(in oklab, var(--forest-deep) 88%, transparent) 0%, color-mix(in oklab, var(--forest-deep) 40%, transparent) 60%, transparent 100%);
+  --gradient-hero: linear-gradient(90deg, color-mix(in oklab, var(--forest-deep) 68%, transparent) 0%, color-mix(in oklab, var(--forest-deep) 28%, transparent) 44%, color-mix(in oklab, var(--forest-deep) 4%, transparent) 76%, transparent 100%);
+  --gradient-hero-bottom: linear-gradient(0deg, color-mix(in oklab, var(--forest-deep) 70%, transparent) 0%, transparent 100%);
 }
 
 @layer base {
@@ -107,6 +109,8 @@
 }
 @utility bg-veil { background-image: var(--gradient-veil); }
 @utility bg-side-veil { background-image: var(--gradient-side); }
+@utility bg-hero-veil { background-image: var(--gradient-hero); }
+@utility bg-hero-bottom { background-image: var(--gradient-hero-bottom); }
 @utility shadow-soft { box-shadow: var(--shadow-soft); }
 @utility ease-expo { transition-timing-function: var(--ease-out-expo); }
 @utility grain {
