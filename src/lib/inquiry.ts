@@ -15,6 +15,7 @@ export const inquirySchema = z.object({
 export type InquiryInput = z.infer<typeof inquirySchema>;
 
 export const RECIPIENT_EMAIL = process.env.INQUIRY_RECIPIENT_EMAIL || "berekethailay9734@gmail.com";
+export const WEB3FORMS_ACCESS_KEY = process.env.WEB3FORMS_ACCESS_KEY || "bf77ad58-06a1-47b9-92b4-f0338fc80510";
 
 // Builds an ultra-aesthetic, high-converting executive inquiry email for the export desk
 function generateAestheticEmailHtml(data: InquiryInput, referenceId: string, timestamp: string): string {
