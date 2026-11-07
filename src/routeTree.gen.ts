@@ -15,6 +15,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ExperienceRouteImport } from './routes/experience'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as GlobalTradeRouteImport } from './routes/global-trade'
+import { Route as ProcessRouteImport } from './routes/process'
 import { Route as ProductsRouteImport } from './routes/products'
 
 const IndexRoute = IndexRouteImport.update({
@@ -47,6 +48,11 @@ const GlobalTradeRoute = GlobalTradeRouteImport.update({
   path: '/global-trade',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProcessRoute = ProcessRouteImport.update({
+  id: '/process',
+  path: '/process',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsRoute = ProductsRouteImport.update({
   id: '/products',
   path: '/products',
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/experience': typeof ExperienceRoute
   '/gallery': typeof GalleryRoute
   '/global-trade': typeof GlobalTradeRoute
+  '/process': typeof ProcessRoute
   '/products': typeof ProductsRoute
 }
 export interface FileRoutesByTo {
@@ -69,6 +76,7 @@ export interface FileRoutesByTo {
   '/experience': typeof ExperienceRoute
   '/gallery': typeof GalleryRoute
   '/global-trade': typeof GlobalTradeRoute
+  '/process': typeof ProcessRoute
   '/products': typeof ProductsRoute
 }
 export interface FileRoutesById {
@@ -79,6 +87,7 @@ export interface FileRoutesById {
   '/experience': typeof ExperienceRoute
   '/gallery': typeof GalleryRoute
   '/global-trade': typeof GlobalTradeRoute
+  '/process': typeof ProcessRoute
   '/products': typeof ProductsRoute
 }
 export interface FileRouteTypes {
@@ -90,6 +99,7 @@ export interface FileRouteTypes {
     | '/experience'
     | '/gallery'
     | '/global-trade'
+    | '/process'
     | '/products'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/experience'
     | '/gallery'
     | '/global-trade'
+    | '/process'
     | '/products'
   id:
     | '__root__'
@@ -108,6 +119,7 @@ export interface FileRouteTypes {
     | '/experience'
     | '/gallery'
     | '/global-trade'
+    | '/process'
     | '/products'
   fileRoutesById: FileRoutesById
 }
@@ -118,6 +130,7 @@ export interface RootRouteChildren {
   ExperienceRoute: typeof ExperienceRoute
   GalleryRoute: typeof GalleryRoute
   GlobalTradeRoute: typeof GlobalTradeRoute
+  ProcessRoute: typeof ProcessRoute
   ProductsRoute: typeof ProductsRoute
 }
 
@@ -165,6 +178,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GlobalTradeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/process': {
+      id: '/process'
+      path: '/process'
+      fullPath: '/process'
+      preLoaderRoute: typeof ProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products': {
       id: '/products'
       path: '/products'
@@ -182,6 +202,7 @@ const rootRouteChildren: RootRouteChildren = {
   ExperienceRoute: ExperienceRoute,
   GalleryRoute: GalleryRoute,
   GlobalTradeRoute: GlobalTradeRoute,
+  ProcessRoute: ProcessRoute,
   ProductsRoute: ProductsRoute,
 }
 export const routeTree = rootRouteImport

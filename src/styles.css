@@ -40,6 +40,9 @@
   --color-ivory: var(--ivory);
   --color-sage: var(--sage);
   --color-charcoal: var(--charcoal);
+  --color-primary-glow: var(--primary-glow);
+  --color-overlay: var(--overlay);
+  --color-overlay-foreground: var(--overlay-foreground);
 }
 
 :root {
@@ -80,16 +83,21 @@
   --shadow-soft: 0 30px 60px -30px color-mix(in oklab, var(--forest-deep) 45%, transparent);
   --gradient-veil: linear-gradient(180deg, color-mix(in oklab, var(--forest-deep) 70%, transparent) 0%, color-mix(in oklab, var(--forest-deep) 20%, transparent) 40%, color-mix(in oklab, var(--forest-deep) 85%, transparent) 100%);
   --gradient-side: linear-gradient(90deg, color-mix(in oklab, var(--forest-deep) 88%, transparent) 0%, color-mix(in oklab, var(--forest-deep) 40%, transparent) 60%, transparent 100%);
-  --gradient-hero: linear-gradient(90deg, color-mix(in oklab, var(--forest-deep) 68%, transparent) 0%, color-mix(in oklab, var(--forest-deep) 28%, transparent) 44%, color-mix(in oklab, var(--forest-deep) 4%, transparent) 76%, transparent 100%);
-  --gradient-hero-bottom: linear-gradient(0deg, color-mix(in oklab, var(--forest-deep) 70%, transparent) 0%, transparent 100%);
+
+  --primary-glow: oklch(0.68 0.16 125);
+  --overlay: oklch(0.18 0.03 135);
+  --overlay-foreground: oklch(0.98 0.01 100);
+  --gradient-line: linear-gradient(180deg, var(--banana), var(--avocado), var(--forest));
+  --gradient-scrim: linear-gradient(180deg, transparent 35%, color-mix(in oklab, var(--forest-deep) 85%, transparent));
+  --shadow-photo: 0 40px 80px -30px color-mix(in oklab, var(--forest-deep) 45%, transparent);
 }
 
 @layer base {
   * { border-color: var(--color-border); }
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-  html, body { overflow-x: clip; }
+  html, body { overflow-x: clip; width: 100%; }
   body { background-color: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.015em; }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.015em; overflow-wrap: break-word; }
   ::selection { background: var(--banana); color: var(--forest-deep); }
 }
 
@@ -104,13 +112,12 @@
   width: 100%;
   max-width: 82rem;
   margin-inline: auto;
-  padding-inline: 1.5rem;
+  padding-inline: 1rem;
+  @media (min-width: 480px) { padding-inline: 1.5rem; }
   @media (min-width: 768px) { padding-inline: 2.5rem; }
 }
 @utility bg-veil { background-image: var(--gradient-veil); }
 @utility bg-side-veil { background-image: var(--gradient-side); }
-@utility bg-hero-veil { background-image: var(--gradient-hero); }
-@utility bg-hero-bottom { background-image: var(--gradient-hero-bottom); }
 @utility shadow-soft { box-shadow: var(--shadow-soft); }
 @utility ease-expo { transition-timing-function: var(--ease-out-expo); }
 @utility grain {
@@ -124,6 +131,11 @@
   }
 }
 
+@utility bg-gradient-line { background-image: var(--gradient-line); }
+@utility bg-gradient-scrim { background-image: var(--gradient-scrim); }
+@utility shadow-photo { box-shadow: var(--shadow-photo); }
+@utility text-stroke { -webkit-text-stroke: 1.5px color-mix(in oklab, var(--forest) 30%, transparent); color: transparent; }
+
 @keyframes mark-flip {
   0% { transform: perspective(600px) rotateY(0deg); }
   50% { transform: perspective(600px) rotateY(180deg); }
@@ -133,3 +145,16 @@
 
 @keyframes marquee { to { transform: translateX(-50%); } }
 @utility animate-marquee { animation: marquee 40s linear infinite; }
+
+/* Suppress any third-party/builder badges, edit boxes, or watermarks */
+[class*="lovable"],
+[id*="lovable"],
+[data-lovable],
+a[href*="lovable.dev"],
+iframe[src*="lovable"],
+#lovable-badge {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
