@@ -205,8 +205,8 @@ function Contact() {
             </div>
             <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
               Every detail submitted through this inquiry form is automatically transmitted directly to{" "}
-              <strong className="text-forest">Elsa Getachew</strong> (<span className="text-forest">{SITE.email}</span>
-              ). No third-party forwarding, no redirection. We respond to wholesale specifications within 24 business hours.
+              <strong className="text-forest">berekethailay9734@gmail.com</strong>.
+              No third-party forwarding, no redirection. We review and respond to wholesale specifications within 24 business hours.
             </p>
           </div>
         </Reveal>
@@ -262,8 +262,7 @@ function Contact() {
                   <p className="text-sm leading-relaxed text-ivory/90">
                     Thank you, <strong className="text-banana">{submissionResult.data.name}</strong>. Your commercial
                     avocado export inquiry for <strong className="text-white">{submissionResult.data.company}</strong> has
-                    been successfully transmitted directly to <strong className="text-banana">Elsa Getachew</strong> (
-                    <span className="text-banana">{SITE.email}</span>).
+                    been successfully transmitted directly to <strong className="text-banana">berekethailay9734@gmail.com</strong>.
                   </p>
 
                   {/* Summary of what was sent to Elsa */}
@@ -308,14 +307,14 @@ function Contact() {
                 <div className="relative z-10 mt-7 flex flex-wrap items-center gap-4 border-t border-ivory/15 pt-6">
                   <a
                     href={`https://wa.me/251920959903?text=${encodeURIComponent(
-                      `Hello Elsa, I just submitted an avocado export inquiry for ${submissionResult.data.company} (Ref #${submissionResult.referenceId}). Looking forward to your quote!`
+                      `Hello, I just submitted an avocado export inquiry for ${submissionResult.data.company} (Ref #${submissionResult.referenceId}). Looking forward to your quote!`
                     )}`}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2.5 rounded-sm bg-banana px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-forest transition-transform hover:scale-105 active:scale-95 shadow-md"
                   >
                     <MessageSquare className="h-4 w-4" />
-                    Instant WhatsApp Follow-up with Elsa
+                    Instant WhatsApp Follow-up
                   </a>
 
                   <button
@@ -401,7 +400,7 @@ function Contact() {
                     {isSubmitting ? (
                       <>
                         <Loader2 className="h-4 w-4 animate-spin text-banana" />
-                        <span className="relative z-10 text-ivory">Dispatching to Elsa Getachew...</span>
+                        <span className="relative z-10 text-ivory">Dispatching to Export Desk...</span>
                       </>
                     ) : (
                       <>
@@ -420,7 +419,7 @@ function Contact() {
                   </motion.button>
 
                   <p className="mt-4 text-xs text-muted-foreground">
-                    Direct automated transmission to Elsa Getachew (<span className="text-forest font-medium">{SITE.email}</span>).
+                    Direct automated transmission to Export Desk (<span className="text-forest font-medium">berekethailay9734@gmail.com</span>).
                   </p>
                 </div>
               </form>
