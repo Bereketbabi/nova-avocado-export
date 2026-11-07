@@ -8,7 +8,6 @@ import {
   Loader2,
   Mail,
   MapPin,
-  MessageSquare,
   Package,
   Phone,
   RotateCcw,
@@ -136,17 +135,18 @@ function Contact() {
       const referenceId = `NV-${Math.floor(100000 + Math.random() * 900000)}`;
 
       // 1. Submit directly from browser to Web3Forms using the verified access key
+      const firstName = r.data.name.trim().split(/\s+/)[0] || r.data.name;
       const web3Payload = {
         access_key: WEB3FORMS_ACCESS_KEY,
-        subject: `🥑 New Avocado Export Inquiry: ${r.data.company} (${r.data.country}) — Ref #${referenceId}`,
-        from_name: "Nova Wholesale Trade Export Desk",
+        subject: `A new enquiry from ${firstName} · Ref #${referenceId}`,
+        from_name: `${r.data.name} via Nova Avocado Export`,
         name: r.data.name,
         company: r.data.company,
         email: r.data.email,
         country: r.data.country,
-        phone: r.data.phone || "Not provided",
-        product: r.data.product || "Export Avocado (General Inquiry)",
-        quantity: r.data.quantity || "Standard Reefer Container (21-23 MT)",
+        phone: r.data.phone || "-",
+        product: r.data.product || "-",
+        quantity: r.data.quantity || "-",
         message: r.data.message,
         reference_id: referenceId,
       };
@@ -337,20 +337,8 @@ function Contact() {
                   </p>
                 </div>
 
-                {/* Instant Actions */}
+                {/* Actions */}
                 <div className="relative z-10 mt-7 flex flex-wrap items-center gap-4 border-t border-ivory/15 pt-6">
-                  <a
-                    href={`https://wa.me/251920959903?text=${encodeURIComponent(
-                      `Hello, I just submitted an avocado export inquiry for ${submissionResult.data.company} (Ref #${submissionResult.referenceId}). Looking forward to your quote!`
-                    )}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2.5 rounded-sm bg-banana px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-forest transition-transform hover:scale-105 active:scale-95 shadow-md"
-                  >
-                    <MessageSquare className="h-4 w-4" />
-                    Instant WhatsApp Follow-up
-                  </a>
-
                   <button
                     type="button"
                     onClick={() => setSubmissionResult(null)}
