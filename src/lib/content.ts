@@ -1,5 +1,5 @@
 export const JOURNEY = [
-  { title: "Building experience through banana supply", text: "Years spent sourcing and supplying Ethiopian bananas built a deep understanding of growers, harvests and handling." },
+  { title: "Building experience through avocado supply", text: "Years spent sourcing and supplying Ethiopian avocados built a deep understanding of growers, harvests and handling." },
   { title: "Working with established exporters", text: "We supplied established exporting companies, who handled the international side of the trade." },
   { title: "Understanding international expectations", text: "That partnership taught us the standards, timing and consistency international buyers require." },
   { title: "Expanding into direct export", text: "Today we are taking the next step — trading directly with international buyers." },

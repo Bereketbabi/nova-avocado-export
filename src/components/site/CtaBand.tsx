@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import img from "@/assets/supply-truck.jpg";
+import img from "@/assets/avocado-cold-chain-truck.jpg";
 import { Reveal } from "./Reveal";
 
 export function CtaBand() {

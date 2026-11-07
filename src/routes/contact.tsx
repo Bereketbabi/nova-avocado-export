@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { CheckCircle2, Mail, MapPin, Phone } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import { z } from "zod";
-import hero from "@/assets/hands-quality.jpg";
+import hero from "@/assets/avocado-quality-hands.jpg";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { SITE } from "@/lib/site";

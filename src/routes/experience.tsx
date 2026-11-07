@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import hero from "@/assets/supply-truck.jpg";
-import hands from "@/assets/hands-quality.jpg";
-import packing from "@/assets/packing-shed.jpg";
-import farmer from "@/assets/farmer-harvest.jpg";
-import bunch from "@/assets/banana-bunch.jpg";
+import hero from "@/assets/avocado-cold-chain-truck.jpg";
+import hands from "@/assets/avocado-quality-hands.jpg";
+import packing from "@/assets/avocado-packing-house.jpg";
+import farmer from "@/assets/ethiopian-avocado-farmer.jpg";
+import fruit from "@/assets/green-avocados-tree.jpg";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal, RevealImage } from "@/components/site/Reveal";
 import { CtaBand } from "@/components/site/CtaBand";
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/experience")({
   head: () => ({
     meta: [
       { title: "Our Experience — Nova Wholesale Trade" },
-      { name: "description", content: "How years of supplying established exporters prepared Nova for direct international banana trade." },
+      { name: "description", content: "How years of supplying established exporters prepared Nova for direct international avocado trade." },
       { property: "og:title", content: "Our Experience — Nova Wholesale Trade" },
       { property: "og:description", content: "Quality starts at the source." },
     ],
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/experience")({
   component: Experience,
 });
 
-const PROCESS_IMG = [farmer, bunch, hands, packing, hero];
+const PROCESS_IMG = [farmer, fruit, hands, packing, hero];
 
 function Experience() {
   return (
@@ -30,7 +30,7 @@ function Experience() {
 
       <section className="bg-ivory py-28 md:py-40">
         <div className="container-x">
-          <Reveal className="max-w-2xl"><p className="eyebrow text-avocado">Timeline</p><h2 className="mt-5 text-3xl sm:text-4xl leading-tight text-forest md:text-5xl">From supplier to direct exporter.</h2></Reveal>
+          <Reveal className="max-w-2xl"><p className="eyebrow text-avocado">Timeline</p><h2 className="mt-5 text-3xl leading-tight text-forest sm:text-4xl md:text-5xl">From supplier to direct exporter.</h2></Reveal>
           <ol className="relative mt-20 border-l border-border pl-10 md:ml-[33%]">
             {JOURNEY.map((j, i) => (
               <li key={j.title} className="relative pb-16 last:pb-0"><Reveal>
@@ -46,11 +46,11 @@ function Experience() {
 
       <section className="grain relative bg-forest py-28 text-ivory md:py-36">
         <div className="container-x">
-          <Reveal className="max-w-2xl"><p className="eyebrow text-banana">Quality & supply</p><h2 className="mt-5 text-3xl sm:text-4xl leading-tight md:text-6xl">Quality starts at the source.</h2></Reveal>
+          <Reveal className="max-w-2xl"><p className="eyebrow text-banana">Quality & supply</p><h2 className="mt-5 text-3xl leading-tight sm:text-4xl md:text-6xl">Quality starts at the source.</h2></Reveal>
           <div className="mt-20 space-y-24">
             {PROCESS.map((p, i) => (
               <div key={p.title} className={`grid items-center gap-10 md:grid-cols-2 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
-                <RevealImage src={PROCESS_IMG[i] ?? hero} alt={p.title} className="aspect-[16/11]" />
+                <RevealImage src={PROCESS_IMG[i] ?? hero} alt={`${p.title} for Ethiopian avocados`} width={1600} height={1104} className="aspect-[16/11]" />
                 <Reveal className="md:px-10">
                   <span className="font-display text-7xl text-banana">0{i + 1}</span>
                   <h3 className="mt-4 text-3xl md:text-4xl">{p.title}</h3>

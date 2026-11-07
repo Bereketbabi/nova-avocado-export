@@ -1,4 +1,4 @@
-import { motion, useInView, type HTMLMotionProps } from "framer-motion";
+import { motion, useInView, useReducedMotion, useScroll, useTransform, type HTMLMotionProps } from "framer-motion";
 import { useRef } from "react";
 
 const ease = [0.16, 1, 0.3, 1] as const;
