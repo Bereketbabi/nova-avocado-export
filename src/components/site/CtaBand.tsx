@@ -6,7 +6,7 @@ import { Reveal } from "./Reveal";
 export function CtaBand() {
   return (
     <section className="grain relative overflow-hidden bg-forest-deep">
-      <img src={img} alt="" width={1600} height={1008} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-45" />
+      <img src={img} alt="Refrigerated avocado transport through the Ethiopian highlands" width={1920} height={1088} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-55" />
       <div className="absolute inset-0 bg-side-veil" />
       <div className="container-x relative py-28 md:py-36">
         <Reveal className="max-w-2xl">

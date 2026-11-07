@@ -12,7 +12,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact & Request a Quote — Nova Wholesale Trade" },
-      { name: "description", content: "Contact Nova Wholesale Trade to discuss Ethiopian banana supply. Email elsagetachew123@gmail.com or call +251 92 095 9903." },
+      { name: "description", content: "Contact Nova Wholesale Trade to discuss Ethiopian avocado supply. Email elsagetachew123@gmail.com or call +251 92 095 9903." },
       { property: "og:title", content: "Contact Nova Wholesale Trade" },
       { property: "og:description", content: "Let's build a supply partnership." },
     ],

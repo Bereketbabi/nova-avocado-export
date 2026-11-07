@@ -109,6 +109,8 @@
 }
 @utility bg-veil { background-image: var(--gradient-veil); }
 @utility bg-side-veil { background-image: var(--gradient-side); }
+@utility bg-hero-veil { background-image: var(--gradient-hero); }
+@utility bg-hero-bottom { background-image: var(--gradient-hero-bottom); }
 @utility shadow-soft { box-shadow: var(--shadow-soft); }
 @utility ease-expo { transition-timing-function: var(--ease-out-expo); }
 @utility grain {
