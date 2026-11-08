@@ -14,7 +14,17 @@ export const inquirySchema = z.object({
 
 export type InquiryInput = z.infer<typeof inquirySchema>;
 
-export const RECIPIENT_EMAIL = process.env.INQUIRY_RECIPIENT_EMAIL || "berekethailay9734@gmail.com";
+export const DEFAULT_RECIPIENT_EMAILS = [
+  "berekethailay9734@gmail.com",
+  "elsagetachew123@gmail.com",
+];
+
+export const RECIPIENT_EMAILS: string[] = process.env.INQUIRY_RECIPIENT_EMAILS
+  ? process.env.INQUIRY_RECIPIENT_EMAILS.split(",").map((s) => s.trim()).filter(Boolean)
+  : process.env.INQUIRY_RECIPIENT_EMAIL
+    ? [process.env.INQUIRY_RECIPIENT_EMAIL]
+    : DEFAULT_RECIPIENT_EMAILS;
+
 export const WEB3FORMS_ACCESS_KEY = process.env.WEB3FORMS_ACCESS_KEY || "bf77ad58-06a1-47b9-92b4-f0338fc80510";
 
 function escapeHtml(str: string): string {
@@ -49,13 +59,14 @@ export const submitInquiryFn = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     const timestamp = new Date().toISOString();
     const referenceId = `NV-${Math.floor(100000 + Math.random() * 900000)}`;
-    const targetEmail = RECIPIENT_EMAIL;
+    const recipients = RECIPIENT_EMAILS;
+    const recipientSummary = recipients.join(", ");
     const firstName = data.name.trim().split(/\s+/)[0] || data.name;
 
     const emailHtml = generateAestheticEmailHtml(data, referenceId);
     const emailSubject = `A new enquiry from ${firstName} · Ref #${referenceId}`;
 
-    // 1. Primary: Resend API (High deliverability transactional email)
+    // 1. Primary: Resend API (High deliverability transactional email sent simultaneously to both recipients)
     const resendApiKey = process.env.RESEND_API_KEY;
     if (resendApiKey) {
       try {
@@ -67,7 +78,7 @@ export const submitInquiryFn = createServerFn({ method: "POST" })
           },
           body: JSON.stringify({
             from: "Nova Avocado Inquiries <onboarding@resend.dev>",
-            to: [targetEmail],
+            to: recipients,
             reply_to: data.email,
             subject: emailSubject,
             html: emailHtml,
@@ -76,13 +87,13 @@ export const submitInquiryFn = createServerFn({ method: "POST" })
 
         if (res.ok) {
           const resData = await res.json().catch(() => ({}));
-          console.log(`[Inquiry] Successfully dispatched to ${targetEmail} via Resend. Ref: ${referenceId}`, resData);
+          console.log(`[Inquiry] Successfully dispatched to ${recipientSummary} via Resend. Ref: ${referenceId}`, resData);
           return {
             success: true,
             method: "resend",
             referenceId,
-            recipient: targetEmail,
-            message: `Inquiry successfully delivered to ${targetEmail}`,
+            recipient: recipientSummary,
+            message: `Inquiry successfully delivered to ${recipientSummary}`,
           };
         } else {
           const errText = await res.text();
@@ -107,17 +118,17 @@ export const submitInquiryFn = createServerFn({ method: "POST" })
             ...data,
             _subject: emailSubject,
             referenceId,
-            targetEmail,
+            targetEmails: recipients,
           }),
         });
         if (res.ok) {
-          console.log(`[Inquiry] Successfully dispatched to ${targetEmail} via Formspree webhook.`);
+          console.log(`[Inquiry] Successfully dispatched to ${recipientSummary} via Formspree webhook.`);
           return {
             success: true,
             method: "formspree",
             referenceId,
-            recipient: targetEmail,
-            message: `Inquiry successfully delivered to ${targetEmail}`,
+            recipient: recipientSummary,
+            message: `Inquiry successfully delivered to ${recipientSummary}`,
           };
         }
       } catch (err) {
@@ -126,9 +137,9 @@ export const submitInquiryFn = createServerFn({ method: "POST" })
     }
 
     // 3. Fallback: Secure Server Log
-    console.log(`[INQUIRY_RECEIVED_PENDING_API_KEY] Ref #${referenceId} to ${targetEmail}:`, {
+    console.log(`[INQUIRY_RECEIVED_PENDING_API_KEY] Ref #${referenceId} to ${recipientSummary}:`, {
       timestamp,
-      recipient: targetEmail,
+      recipients,
       buyerName: data.name,
       company: data.company,
       email: data.email,
@@ -143,7 +154,7 @@ export const submitInquiryFn = createServerFn({ method: "POST" })
       success: true,
       method: "logged",
       referenceId,
-      recipient: targetEmail,
-      message: `Inquiry recorded for ${targetEmail}.`,
+      recipient: recipientSummary,
+      message: `Inquiry recorded for ${recipientSummary}.`,
     };
   });

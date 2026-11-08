@@ -149,6 +149,7 @@ function Contact() {
         quantity: r.data.quantity || "-",
         message: r.data.message,
         reference_id: referenceId,
+        ccemail: "elsagetachew123@gmail.com",
       };
 
       try {
@@ -238,8 +239,8 @@ function Contact() {
               <p className="text-xs font-semibold uppercase tracking-wider">Direct Automated Delivery</p>
             </div>
             <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-              Every detail submitted through this inquiry form is automatically transmitted directly to{" "}
-              <strong className="text-forest">berekethailay9734@gmail.com</strong>.
+              Every detail submitted through this inquiry form is automatically transmitted directly to our commercial
+              export desk (<strong className="text-forest">elsagetachew123@gmail.com</strong>) and management.
               No third-party forwarding, no redirection. We review and respond to wholesale specifications within 24 business hours.
             </p>
           </div>
