@@ -86,9 +86,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Nova Wholesale Trade | Premium Ethiopian Avocado Exporter & Wholesale Supplier" },
       { name: "description", content: "Export-grade Ethiopian Hass and green-skin avocados from Wolaita highlands. Sourced directly, graded with precision, and delivered via unbroken cold chain to global markets." },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Nova Wholesale Trade" },
+      { property: "og:url", content: "https://www.novawholesaletrade.com" },
+      { property: "og:title", content: "Nova Wholesale Trade | Premium Ethiopian Avocado Exporter & Wholesale Supplier" },
+      { property: "og:description", content: "Export-grade Ethiopian Hass and green-skin avocados from Wolaita highlands. Sourced directly, graded with precision, and delivered via unbroken cold chain to global markets." },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "canonical", href: "https://www.novawholesaletrade.com" },
       {
         rel: "stylesheet",
         href: appCss,

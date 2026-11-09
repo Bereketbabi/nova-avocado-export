@@ -1,6 +1,8 @@
 export const SITE = {
   name: "Nova Wholesale Trade",
   tagline: "Premium Ethiopian Avocado Exporter & Wholesale Supplier",
+  url: "https://www.novawholesaletrade.com",
+  domain: "novawholesaletrade.com",
   email: "elsagetachew123@gmail.com",
   phone: "+251 92 095 9903",
   phoneHref: "tel:+251920959903",
