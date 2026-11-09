@@ -236,12 +236,10 @@ function Contact() {
           <div className="mt-8 rounded-sm border border-forest/15 bg-cream/70 p-5">
             <div className="flex items-center gap-2 text-forest">
               <ShieldCheck className="h-4 w-4 text-avocado" />
-              <p className="text-xs font-semibold uppercase tracking-wider">Direct Automated Delivery</p>
+              <p className="text-xs font-semibold uppercase tracking-wider">Prompt Response</p>
             </div>
             <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-              Every detail submitted through this inquiry form is automatically transmitted directly to our commercial
-              export desk (<strong className="text-forest">elsagetachew123@gmail.com</strong>) and management.
-              No third-party forwarding, no redirection. We review and respond to wholesale specifications within 24 business hours.
+              Our export team receives every inquiry directly. We will review your specifications and follow up with current pricing, caliber availability, and shipping timelines shortly.
             </p>
           </div>
         </Reveal>
@@ -282,7 +280,7 @@ function Contact() {
                         Inquiry Ref #{submissionResult.referenceId}
                       </span>
                       <h4 className="mt-1 text-2xl font-display font-semibold text-ivory">
-                        Inquiry Automatically Dispatched!
+                        Inquiry Received!
                       </h4>
                     </div>
                   </div>
@@ -296,14 +294,14 @@ function Contact() {
                 <div className="relative z-10 mt-6 space-y-4">
                   <p className="text-sm leading-relaxed text-ivory/90">
                     Thank you, <strong className="text-banana">{submissionResult.data.name}</strong>. Your commercial
-                    avocado export inquiry for <strong className="text-white">{submissionResult.data.company}</strong> has
-                    been successfully transmitted directly to <strong className="text-banana">berekethailay9734@gmail.com</strong>.
+                    inquiry for <strong className="text-white">{submissionResult.data.company}</strong> has
+                    been successfully received by our team.
                   </p>
 
-                  {/* Summary of what was sent to Elsa */}
+                  {/* Summary of submitted specifications */}
                   <div className="rounded border border-ivory/15 bg-forest-deep/60 p-5 text-xs">
                     <p className="font-semibold uppercase tracking-wider text-banana/90 mb-3">
-                      Transmission Summary Delivered to Export Desk:
+                      Your Submitted Requirements:
                     </p>
                     <div className="grid gap-2.5 sm:grid-cols-2">
                       <div className="flex items-center gap-2 text-ivory/90">
@@ -332,9 +330,9 @@ function Contact() {
                   </div>
 
                   <p className="text-xs leading-relaxed text-ivory/70">
-                    Elsa and the export desk are reviewing your specifications and will follow up directly at{" "}
-                    <strong className="text-ivory">{submissionResult.data.email}</strong> with current pricing, caliber
-                    availability, and port lead times.
+                    Our team is reviewing your requirements and will reach out to{" "}
+                    <strong className="text-ivory">{submissionResult.data.email}</strong> shortly with pricing, caliber
+                    availability, and shipping timelines.
                   </p>
                 </div>
 
@@ -442,7 +440,7 @@ function Contact() {
                   </motion.button>
 
                   <p className="mt-4 text-xs text-muted-foreground">
-                    Direct automated transmission to Export Desk (<span className="text-forest font-medium">berekethailay9734@gmail.com</span>).
+                    Our team will receive an email for your inquiry and reach out to you shortly.
                   </p>
                 </div>
               </form>
