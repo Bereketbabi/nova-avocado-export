@@ -149,7 +149,6 @@ function Contact() {
         quantity: r.data.quantity || "-",
         message: r.data.message,
         reference_id: referenceId,
-        ccemail: "elsagetachew123@gmail.com",
       };
 
       try {
