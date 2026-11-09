@@ -19,13 +19,13 @@ export const DEFAULT_RECIPIENT_EMAILS = [
   "elsagetachew123@gmail.com",
 ];
 
-export const RECIPIENT_EMAILS: string[] = process.env.INQUIRY_RECIPIENT_EMAILS
-  ? process.env.INQUIRY_RECIPIENT_EMAILS.split(",").map((s) => s.trim()).filter(Boolean)
-  : process.env.INQUIRY_RECIPIENT_EMAIL
-    ? [process.env.INQUIRY_RECIPIENT_EMAIL]
+export const RECIPIENT_EMAILS: string[] = process.env["INQUIRY_RECIPIENT_EMAILS"]
+  ? process.env["INQUIRY_RECIPIENT_EMAILS"].split(",").map((s) => s.trim()).filter(Boolean)
+  : process.env["INQUIRY_RECIPIENT_EMAIL"]
+    ? [process.env["INQUIRY_RECIPIENT_EMAIL"]]
     : DEFAULT_RECIPIENT_EMAILS;
 
-export const WEB3FORMS_ACCESS_KEY = process.env.WEB3FORMS_ACCESS_KEY || "bf77ad58-06a1-47b9-92b4-f0338fc80510";
+export const WEB3FORMS_ACCESS_KEY = process.env["WEB3FORMS_ACCESS_KEY"] || "bf77ad58-06a1-47b9-92b4-f0338fc80510";
 
 function escapeHtml(str: string): string {
   return str
@@ -67,7 +67,7 @@ export const submitInquiryFn = createServerFn({ method: "POST" })
     const emailSubject = `A new enquiry from ${firstName} · Ref #${referenceId}`;
 
     // 1. Primary: Resend API (High deliverability transactional email sent simultaneously to both recipients)
-    const resendApiKey = process.env.RESEND_API_KEY;
+    const resendApiKey = process.env["RESEND_API_KEY"];
     if (resendApiKey) {
       try {
         const res = await fetch("https://api.resend.com/emails", {
@@ -105,7 +105,7 @@ export const submitInquiryFn = createServerFn({ method: "POST" })
     }
 
     // 2. Secondary: Formspree or custom webhook if configured
-    const formspreeEndpoint = process.env.FORMSPREE_ENDPOINT;
+    const formspreeEndpoint = process.env["FORMSPREE_ENDPOINT"];
     if (formspreeEndpoint) {
       try {
         const res = await fetch(formspreeEndpoint, {

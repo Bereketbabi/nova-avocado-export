@@ -136,7 +136,8 @@ export function AvocadoProcessShowcase() {
   const [activeStage, setActiveStage] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const stage = PROCESS_STAGES[activeStage];
+  const stage = PROCESS_STAGES[activeStage] ?? PROCESS_STAGES[0];
+  if (!stage) return null;
 
   return (
     <div ref={containerRef} className="relative rounded-2xl border border-border bg-ivory/80 shadow-xl overflow-hidden backdrop-blur-sm">

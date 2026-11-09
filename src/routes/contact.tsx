@@ -327,12 +327,6 @@ function Contact() {
                       </p>
                     </div>
                   </div>
-
-                  <p className="text-xs leading-relaxed text-ivory/70">
-                    Our team is reviewing your requirements and will reach out to{" "}
-                    <strong className="text-ivory">{submissionResult.data.email}</strong> shortly with pricing, caliber
-                    availability, and shipping timelines.
-                  </p>
                 </div>
 
                 {/* Actions */}
@@ -399,14 +393,14 @@ function Contact() {
                     type="submit"
                     disabled={isSubmitting}
                     whileHover={
-                      !isSubmitting
-                        ? {
+                      isSubmitting
+                        ? {}
+                        : {
                             scale: 1.025,
                             boxShadow: "0 10px 28px -6px rgba(27, 53, 36, 0.45), 0 0 20px rgba(245, 197, 66, 0.3)",
                           }
-                        : undefined
                     }
-                    whileTap={!isSubmitting ? { scale: 0.98 } : undefined}
+                    whileTap={isSubmitting ? {} : { scale: 0.98 }}
                     className="relative group inline-flex items-center justify-center gap-3.5 overflow-hidden rounded-sm bg-forest px-9 py-4 text-xs font-bold uppercase tracking-[0.2em] text-ivory transition-all duration-300 disabled:opacity-75 disabled:cursor-not-allowed"
                   >
                     {/* Shimmer light sweep on hover */}
